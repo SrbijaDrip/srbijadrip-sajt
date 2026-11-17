@@ -277,10 +277,10 @@
         cena: "6.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
         slike: [
+          "assets/tech-fleece-new-set-4.png",
           "assets/tech-fleece-new-set-1.png",
           "assets/tech-fleece-new-set-2.png",
-          "assets/tech-fleece-new-set-3.png",
-          "assets/tech-fleece-new-set-4.png"
+          "assets/tech-fleece-new-set-3.png"
         ]
       },
       {
@@ -472,6 +472,7 @@
     let trenutnaSlika = 0;
 
     function cenaPreAkcije(proizvod) {
+      if (proizvod.kategorija === "Kompleti" && proizvod.naziv.startsWith("Tech Fleece Komplet")) return "7.590 RSD";
       if (proizvod.kategorija === "Jakne" && proizvod.cena === "8.490 RSD") return "9.590 RSD";
       if (proizvod.kategorija === "Šuškavci") return proizvod.naziv.includes("Deblji") ? "7.650 RSD" : "6.690 RSD";
       return "";
