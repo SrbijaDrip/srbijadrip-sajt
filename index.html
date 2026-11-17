@@ -61,10 +61,9 @@
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
       <h2 class="text-2xl md:text-3xl font-medium text-white">Izdvojeni komadi</h2>
       <div class="flex gap-2 overflow-x-auto pb-1" id="filter-buttons">
-        <button onclick="filterProizvode('Sve')" class="filter-btn active px-4 py-1.5 rounded-full text-xs font-medium bg-purple-600 text-white shadow-[0_0_10px_rgba(147,51,234,0.4)]">Sve</button>
+        <button onclick="filterProizvode('Najprodavanije')" class="filter-btn active px-4 py-1.5 rounded-full text-xs font-medium bg-purple-600 text-white shadow-[0_0_10px_rgba(147,51,234,0.4)]">Najprodavanije</button>
         <button onclick="filterProizvode('Jakne')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-[#1a1226] text-purple-300 border border-purple-900/50 hover:bg-purple-950">Jakne</button>
         <button onclick="filterProizvode('Kompleti')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-[#1a1226] text-purple-300 border border-purple-900/50 hover:bg-purple-950">Kompleti</button>
-        <button onclick="filterProizvode('Haljine')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-[#1a1226] text-purple-300 border border-purple-900/50 hover:bg-purple-950">Haljine</button>
       </div>
     </div>
 
@@ -190,14 +189,6 @@
         slika: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80"
       },
       {
-        id: 3,
-        naziv: "Saten Haljina Champagne",
-        kategorija: "Haljine",
-        cena: "5.400 RSD",
-        velicine: ["XS", "S", "M"],
-        slika: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80"
-      },
-      {
         id: 4,
         naziv: "Kratka Puffer Jakna",
         kategorija: "Jakne",
@@ -213,14 +204,6 @@
         velicine: ["S/M", "M/L"],
         slika: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=600&q=80"
       },
-      {
-        id: 6,
-        naziv: "Crna Mini Haljina",
-        kategorija: "Haljine",
-        cena: "4.900 RSD",
-        velicine: ["S", "M", "L"],
-        slika: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=600&q=80"
-      }
     ];
 
     let izabranaVelicina = "";
@@ -256,7 +239,7 @@
           btn.classList.add("bg-purple-600", "text-white", "shadow-[0_0_10px_rgba(147,51,234,0.4)]");
         }
       });
-      const filtrirani = kat === "Sve" ? proizvodi : proizvodi.filter(p => p.kategorija === kat);
+      const filtrirani = kat === "Najprodavanije" ? proizvodi : proizvodi.filter(p => p.kategorija === kat);
       prikaziProizvode(filtrirani);
     }
 
