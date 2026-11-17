@@ -158,7 +158,10 @@
     <div class="bg-[#120c1c] border border-purple-900/50 rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto p-6 relative shadow-[0_0_30px_rgba(147,51,234,0.2)]">
       <button onclick="zatvoriModal()" class="absolute top-4 right-4 text-purple-400 hover:text-white text-xl">✕</button>
       <h3 id="modal-naziv" class="serif text-xl font-bold mb-1 text-white"></h3>
-      <p id="modal-cena" class="text-sm text-purple-400 mb-4 font-semibold"></p>
+      <div class="flex items-center gap-2 mb-4">
+        <p id="modal-cena" class="text-sm text-purple-400 font-semibold"></p>
+        <del id="modal-cena-pre-akcije" class="hidden text-xs text-red-400/80 decoration-red-500"></del>
+      </div>
 
       <div class="relative mb-2 rounded-xl overflow-hidden bg-black/40">
         <img id="modal-slika" alt="" class="w-full max-h-[55vh] object-contain" />
@@ -442,6 +445,10 @@
     let trenutniProizvod = null;
     let trenutnaSlika = 0;
 
+    function cenaPreAkcije(proizvod) {
+      return proizvod.kategorija === "Jakne" && proizvod.cena === "8.490 RSD" ? "9.590 RSD" : "";
+    }
+
     function prikaziProizvode(lista) {
       const grid = document.getElementById("proizvodi-grid");
       grid.innerHTML = lista.map(p => `
@@ -454,7 +461,10 @@
             <div>
               <div class="flex justify-between items-start gap-2 mb-1">
                 <h3 class="font-medium text-sm text-white">${p.naziv}</h3>
-                <span class="font-semibold text-sm text-purple-400 whitespace-nowrap">${p.cena}</span>
+                <div class="flex items-center gap-1 whitespace-nowrap">
+                  <span class="font-semibold text-sm text-purple-400">${p.cena}</span>
+                  ${cenaPreAkcije(p) ? `<del class="text-[10px] text-red-400/80 decoration-red-500">${cenaPreAkcije(p)}</del>` : ""}
+                </div>
               </div>
               <p class="text-xs text-purple-300/50 mb-4">Veličine: ${p.velicine.join(", ")}</p>
             </div>
@@ -486,6 +496,9 @@
       trenutnaSlika = 0;
       document.getElementById("modal-naziv").textContent = trenutniProizvod.naziv;
       document.getElementById("modal-cena").textContent = trenutniProizvod.cena;
+      const modalCenaPreAkcije = document.getElementById("modal-cena-pre-akcije");
+      modalCenaPreAkcije.textContent = cenaPreAkcije(trenutniProizvod);
+      modalCenaPreAkcije.classList.toggle("hidden", !modalCenaPreAkcije.textContent);
       azurirajModalSliku();
       izabranaVelicina = trenutniProizvod.velicine[0];
       azurirajInstagramLink();
