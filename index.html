@@ -184,7 +184,7 @@
         id: 1,
         naziv: "Napapijri Jakna",
         kategorija: "Jakne",
-        najprodavanije: true,
+        najprodavanije: 1,
         cena: "8.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
         slike: [
@@ -284,7 +284,7 @@
         id: 8,
         naziv: "Napapijri Deblji Šuškavac",
         kategorija: "Šuškavci",
-        najprodavanije: true,
+        najprodavanije: 6,
         cena: "6.490 RSD",
         velicine: ["L", "XL", "XXL"],
         slike: ["assets/napapijri-thick-windbreaker.jpg"]
@@ -305,7 +305,6 @@
         id: 10,
         naziv: "Napapijri Šuškavac",
         kategorija: "Šuškavci",
-        najprodavanije: true,
         cena: "5.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
         slike: ["assets/napapijri-windbreaker.jpg"]
@@ -314,7 +313,7 @@
         id: 11,
         naziv: "Lacoste Jakna",
         kategorija: "Jakne",
-        najprodavanije: true,
+        najprodavanije: 2,
         cena: "8.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
         slike: [
@@ -331,7 +330,7 @@
         id: 12,
         naziv: "Hugo Boss Jakna",
         kategorija: "Jakne",
-        najprodavanije: true,
+        najprodavanije: 5,
         cena: "8.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
         slike: [
@@ -354,7 +353,7 @@
         id: 13,
         naziv: "Calvin Klein Jakna",
         kategorija: "Jakne",
-        najprodavanije: true,
+        najprodavanije: 3,
         cena: "8.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
         slike: [
@@ -369,7 +368,7 @@
         id: 14,
         naziv: "The North Face Jakna",
         kategorija: "Jakne",
-        najprodavanije: true,
+        najprodavanije: 4,
         cena: "8.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
         slike: [
@@ -472,7 +471,7 @@
         }
       });
       const filtrirani = kat === "Najprodavanije"
-        ? proizvodi.filter(p => p.najprodavanije)
+        ? proizvodi.filter(p => p.najprodavanije).sort((a, b) => a.najprodavanije - b.najprodavanije)
         : proizvodi.filter(p => p.kategorija === kat);
       prikaziProizvode(filtrirani);
     }
