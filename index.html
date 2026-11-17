@@ -152,12 +152,19 @@
     </a>
   </footer>
 
-  <!-- Modal za poručivanje -->
+  <!-- Modal za pregled slika i poručivanje -->
   <div id="modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-[#120c1c] border border-purple-900/50 rounded-2xl max-w-md w-full p-6 relative shadow-[0_0_30px_rgba(147,51,234,0.2)]">
+    <div class="bg-[#120c1c] border border-purple-900/50 rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto p-6 relative shadow-[0_0_30px_rgba(147,51,234,0.2)]">
       <button onclick="zatvoriModal()" class="absolute top-4 right-4 text-purple-400 hover:text-white text-xl">✕</button>
       <h3 id="modal-naziv" class="serif text-xl font-bold mb-1 text-white"></h3>
       <p id="modal-cena" class="text-sm text-purple-400 mb-4 font-semibold"></p>
+
+      <div class="relative mb-2 rounded-xl overflow-hidden bg-black/40">
+        <img id="modal-slika" alt="" class="w-full max-h-[55vh] object-contain" />
+        <button id="modal-prethodna" type="button" onclick="pomeriSliku(-1)" aria-label="Prethodna fotografija" class="hidden absolute left-3 top-1/2 -translate-y-1/2 bg-black/70 text-white w-10 h-10 rounded-full hover:bg-purple-600 transition">‹</button>
+        <button id="modal-sledeca" type="button" onclick="pomeriSliku(1)" aria-label="Sledeća fotografija" class="hidden absolute right-3 top-1/2 -translate-y-1/2 bg-black/70 text-white w-10 h-10 rounded-full hover:bg-purple-600 transition">›</button>
+      </div>
+      <p id="modal-broj-slike" class="text-center text-xs text-purple-300/70 mb-4"></p>
 
       <label class="block text-xs font-medium mb-1.5 text-purple-200">Izaberi veličinu:</label>
       <div class="flex gap-2 mb-6" id="modal-velicine"></div>
@@ -178,7 +185,19 @@
         kategorija: "Jakne",
         cena: "8.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
-        slika: "assets/napapijri-jacket.jpg"
+        slike: [
+          "assets/napapijri-jacket.jpg",
+          "assets/napapijri-jacket-2.jpg",
+          "assets/napapijri-jacket-3.jpg",
+          "assets/napapijri-jacket-4.jpg",
+          "assets/napapijri-jacket-5.jpg",
+          "assets/napapijri-jacket-6.jpg",
+          "assets/napapijri-jacket-7.jpg",
+          "assets/napapijri-jacket-8.jpg",
+          "assets/napapijri-jacket-9.jpg",
+          "assets/napapijri-jacket-10.jpg",
+          "assets/napapijri-jacket-11.jpg"
+        ]
       },
       {
         id: 2,
@@ -186,7 +205,7 @@
         kategorija: "Kompleti",
         cena: "6.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
-        slika: "assets/tech-fleece-set.jpg"
+        slike: ["assets/tech-fleece-set.jpg"]
       },
       {
         id: 3,
@@ -194,7 +213,7 @@
         kategorija: "Jakne",
         cena: "8.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
-        slika: "assets/nike-long-jacket.jpg"
+        slike: ["assets/nike-long-jacket.jpg", "assets/nike-long-jacket-2.jpg"]
       },
       {
         id: 4,
@@ -202,18 +221,27 @@
         kategorija: "Jakne",
         cena: "8.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
-        slika: "assets/burberry-jacket.jpg"
+        slike: [
+          "assets/burberry-jacket.jpg",
+          "assets/burberry-jacket-2.jpg",
+          "assets/burberry-jacket-3.jpg",
+          "assets/burberry-jacket-4.jpg"
+        ]
       },
     ];
 
     let izabranaVelicina = "";
     let trenutniProizvod = null;
+    let trenutnaSlika = 0;
 
     function prikaziProizvode(lista) {
       const grid = document.getElementById("proizvodi-grid");
       grid.innerHTML = lista.map(p => `
         <div class="bg-[#120c1c] rounded-2xl overflow-hidden border border-purple-950/60 flex flex-col shadow-lg">
-          <img src="${p.slika}" alt="${p.naziv}" class="w-full h-80 object-cover" />
+          <button type="button" onclick="otvoriModal(${p.id})" aria-label="Pogledaj slike: ${p.naziv}" class="relative block w-full text-left">
+            <img src="${p.slike[0]}" alt="${p.naziv}" class="w-full h-80 object-cover" />
+            <span class="absolute bottom-3 right-3 rounded-full bg-black/70 px-3 py-1 text-xs text-white">Pogledaj slike</span>
+          </button>
           <div class="p-4 flex-1 flex flex-col justify-between">
             <div>
               <div class="flex justify-between items-start gap-2 mb-1">
@@ -245,8 +273,10 @@
 
     function otvoriModal(id) {
       trenutniProizvod = proizvodi.find(item => item.id === id);
+      trenutnaSlika = 0;
       document.getElementById("modal-naziv").textContent = trenutniProizvod.naziv;
       document.getElementById("modal-cena").textContent = trenutniProizvod.cena;
+      azurirajModalSliku();
       izabranaVelicina = trenutniProizvod.velicine[0];
       azurirajInstagramLink();
 
@@ -255,6 +285,21 @@
       `).join("");
 
       document.getElementById("modal").classList.remove("hidden");
+    }
+
+    function azurirajModalSliku() {
+      const slike = trenutniProizvod.slike;
+      document.getElementById("modal-slika").src = slike[trenutnaSlika];
+      document.getElementById("modal-slika").alt = `${trenutniProizvod.naziv} - fotografija ${trenutnaSlika + 1}`;
+      document.getElementById("modal-broj-slike").textContent = `${trenutnaSlika + 1} / ${slike.length}`;
+      document.getElementById("modal-prethodna").classList.toggle("hidden", slike.length < 2);
+      document.getElementById("modal-sledeca").classList.toggle("hidden", slike.length < 2);
+    }
+
+    function pomeriSliku(smer) {
+      const brojSlika = trenutniProizvod.slike.length;
+      trenutnaSlika = (trenutnaSlika + smer + brojSlika) % brojSlika;
+      azurirajModalSliku();
     }
 
     function izaberiVel(btn, vel) {
