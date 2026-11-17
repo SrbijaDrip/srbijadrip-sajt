@@ -171,8 +171,8 @@
       </div>
       <p id="modal-broj-slike" class="text-center text-xs text-purple-300/70 mb-4"></p>
 
-      <label class="block text-xs font-medium mb-1.5 text-purple-200">Izaberi veličinu:</label>
-      <div class="flex gap-2 mb-6" id="modal-velicine"></div>
+      <label class="block text-xs font-medium mb-1.5 text-purple-200">Veličine:</label>
+      <div class="flex flex-wrap gap-2 mb-6" id="modal-velicine"></div>
 
       <a id="modal-instagram-btn" href="https://instagram.com/srbijadrip" target="_blank" class="block w-full text-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-3 rounded-xl text-sm font-medium hover:opacity-90 shadow-[0_0_20px_rgba(147,51,234,0.4)] transition">
         Pošalji porudžbinu u Instagram DM ↗
@@ -520,7 +520,6 @@
       },
     ];
 
-    let izabranaVelicina = "";
     let trenutniProizvod = null;
     let trenutnaSlika = 0;
 
@@ -583,11 +582,10 @@
       modalCenaPreAkcije.textContent = cenaPreAkcije(trenutniProizvod);
       modalCenaPreAkcije.classList.toggle("hidden", !modalCenaPreAkcije.textContent);
       azurirajModalSliku();
-      izabranaVelicina = trenutniProizvod.velicine[0];
       azurirajInstagramLink();
 
-      document.getElementById("modal-velicine").innerHTML = trenutniProizvod.velicine.map((v, i) => `
-        <button type="button" onclick="izaberiVel(this, '${v}')" class="vel-btn px-4 py-1.5 rounded-lg text-xs font-medium border ${i === 0 ? 'bg-purple-600 text-white border-purple-500 shadow-[0_0_10px_rgba(147,51,234,0.4)]' : 'bg-[#0b0710] text-purple-300 border-purple-900/60'}">${v}</button>
+      document.getElementById("modal-velicine").innerHTML = trenutniProizvod.velicine.map(v => `
+        <span class="px-4 py-1.5 rounded-lg text-xs font-medium border bg-[#0b0710] text-purple-300 border-purple-900/60">${v}</span>
       `).join("");
 
       document.getElementById("modal").classList.remove("hidden");
@@ -608,19 +606,8 @@
       azurirajModalSliku();
     }
 
-    function izaberiVel(btn, vel) {
-      izabranaVelicina = vel;
-      document.querySelectorAll(".vel-btn").forEach(b => {
-        b.classList.remove("bg-purple-600", "text-white", "border-purple-500", "shadow-[0_0_10px_rgba(147,51,234,0.4)]");
-        b.classList.add("bg-[#0b0710]", "text-purple-300", "border-purple-900/60");
-      });
-      btn.classList.remove("bg-[#0b0710]", "text-purple-300", "border-purple-900/60");
-      btn.classList.add("bg-purple-600", "text-white", "border-purple-500", "shadow-[0_0_10px_rgba(147,51,234,0.4)]");
-      azurirajInstagramLink();
-    }
-
     function azurirajInstagramLink() {
-      const poruka = encodeURIComponent(`Zdravo! Želela bih da poručim: ${trenutniProizvod.naziv}, veličina: ${izabranaVelicina}, cena: ${trenutniProizvod.cena}.`);
+      const poruka = encodeURIComponent(`Zdravo! Želela bih da poručim: ${trenutniProizvod.naziv}, dostupne veličine: ${trenutniProizvod.velicine.join(", ")}, cena: ${trenutniProizvod.cena}.`);
       document.getElementById("modal-instagram-btn").href = `${INSTAGRAM_PROFIL}?text=${poruka}`;
     }
 
