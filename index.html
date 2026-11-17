@@ -184,6 +184,7 @@
         id: 1,
         naziv: "Napapijri Jakna",
         kategorija: "Jakne",
+        najprodavanije: true,
         cena: "8.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
         slike: [
@@ -283,6 +284,7 @@
         id: 8,
         naziv: "Napapijri Deblji Šuškavac",
         kategorija: "Šuškavci",
+        najprodavanije: true,
         cena: "6.490 RSD",
         velicine: ["L", "XL", "XXL"],
         slike: ["assets/napapijri-thick-windbreaker.jpg"]
@@ -303,6 +305,7 @@
         id: 10,
         naziv: "Napapijri Šuškavac",
         kategorija: "Šuškavci",
+        najprodavanije: true,
         cena: "5.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
         slike: ["assets/napapijri-windbreaker.jpg"]
@@ -311,6 +314,7 @@
         id: 11,
         naziv: "Lacoste Jakna",
         kategorija: "Jakne",
+        najprodavanije: true,
         cena: "8.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
         slike: [
@@ -325,8 +329,32 @@
       },
       {
         id: 12,
-        naziv: "Calvin Klein Jakna - Model 1",
+        naziv: "Hugo Boss Jakna",
         kategorija: "Jakne",
+        najprodavanije: true,
+        cena: "8.490 RSD",
+        velicine: ["S", "M", "L", "XL", "XXL"],
+        slike: [
+          "assets/hugo-boss-jacket.jpg",
+          "assets/hugo-boss-jacket-2.jpg",
+          "assets/hugo-boss-jacket-3.jpg",
+          "assets/hugo-boss-jacket-4.jpg",
+          "assets/hugo-boss-jacket-5.jpg",
+          "assets/hugo-boss-jacket-6.jpg",
+          "assets/hugo-boss-jacket-7.jpg",
+          "assets/hugo-boss-jacket-8.jpg",
+          "assets/hugo-boss-jacket-9.jpg",
+          "assets/hugo-boss-jacket-10.jpg",
+          "assets/hugo-boss-jacket-11.jpg",
+          "assets/hugo-boss-jacket-12.jpg",
+          "assets/hugo-boss-jacket-13.jpg"
+        ]
+      },
+      {
+        id: 13,
+        naziv: "Calvin Klein Jakna",
+        kategorija: "Jakne",
+        najprodavanije: true,
         cena: "8.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
         slike: [
@@ -334,35 +362,14 @@
           "assets/calvin-klein-jacket-2.jpg",
           "assets/calvin-klein-jacket-3.jpg",
           "assets/calvin-klein-jacket-4.jpg",
-          "assets/calvin-klein-jacket-5.jpg",
-          "assets/calvin-klein-jacket-6.jpg",
-          "assets/calvin-klein-jacket-7.jpg",
-          "assets/calvin-klein-jacket-8.jpg",
-          "assets/calvin-klein-jacket-9.jpg",
-          "assets/calvin-klein-jacket-10.jpg",
-          "assets/calvin-klein-jacket-11.jpg",
-          "assets/calvin-klein-jacket-12.jpg",
-          "assets/calvin-klein-jacket-13.jpg"
-        ]
-      },
-      {
-        id: 13,
-        naziv: "Calvin Klein Jakna - Model 2",
-        kategorija: "Jakne",
-        cena: "8.490 RSD",
-        velicine: ["S", "M", "L", "XL", "XXL"],
-        slike: [
-          "assets/calvin-klein-jacket-alt.jpg",
-          "assets/calvin-klein-jacket-alt-2.jpg",
-          "assets/calvin-klein-jacket-alt-3.jpg",
-          "assets/calvin-klein-jacket-alt-4.jpg",
-          "assets/calvin-klein-jacket-alt-5.jpg"
+          "assets/calvin-klein-jacket-5.jpg"
         ]
       },
       {
         id: 14,
         naziv: "The North Face Jakna",
         kategorija: "Jakne",
+        najprodavanije: true,
         cena: "8.490 RSD",
         velicine: ["S", "M", "L", "XL", "XXL"],
         slike: [
@@ -464,7 +471,9 @@
           btn.classList.add("bg-purple-600", "text-white", "shadow-[0_0_10px_rgba(147,51,234,0.4)]");
         }
       });
-      const filtrirani = kat === "Najprodavanije" ? proizvodi : proizvodi.filter(p => p.kategorija === kat);
+      const filtrirani = kat === "Najprodavanije"
+        ? proizvodi.filter(p => p.najprodavanije)
+        : proizvodi.filter(p => p.kategorija === kat);
       prikaziProizvode(filtrirani);
     }
 
@@ -519,7 +528,7 @@
       document.getElementById("modal").classList.add("hidden");
     }
 
-    prikaziProizvode(proizvodi);
+    filterProizvode("Najprodavanije");
   </script>
 </body>
 </html>
