@@ -297,6 +297,17 @@
         ]
       },
       {
+        id: 21,
+        naziv: "Hugo Boss Prsluk",
+        kategorija: "Prsluci",
+        cena: "5.490 RSD",
+        velicine: ["S", "M", "L", "XL", "XXL"],
+        slike: [
+          "assets/hugo-boss-vest-1.jpg",
+          "assets/hugo-boss-vest-2.jpg"
+        ]
+      },
+      {
         id: 5,
         naziv: "Trapstar Dugačka Jakna",
         kategorija: "Jakne",
@@ -486,7 +497,7 @@
 
     function cenaPreAkcije(proizvod) {
       if (proizvod.kategorija === "Kompleti" && proizvod.naziv.startsWith("Tech Fleece Komplet")) return "7.590 RSD";
-      if (proizvod.kategorija === "Prsluci" && proizvod.naziv === "Replay Prsluk") return "6.790 RSD";
+      if (proizvod.kategorija === "Prsluci") return "6.790 RSD";
       if (proizvod.kategorija === "Jakne" && proizvod.cena === "8.490 RSD") return "9.590 RSD";
       if (proizvod.kategorija === "Šuškavci") return proizvod.naziv.includes("Deblji") ? "7.650 RSD" : "6.690 RSD";
       return "";
