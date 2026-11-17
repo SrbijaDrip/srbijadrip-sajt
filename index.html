@@ -446,7 +446,9 @@
     let trenutnaSlika = 0;
 
     function cenaPreAkcije(proizvod) {
-      return proizvod.kategorija === "Jakne" && proizvod.cena === "8.490 RSD" ? "9.590 RSD" : "";
+      if (proizvod.kategorija === "Jakne" && proizvod.cena === "8.490 RSD") return "9.590 RSD";
+      if (proizvod.kategorija === "Šuškavci") return proizvod.naziv.includes("Deblji") ? "7.650 RSD" : "6.690 RSD";
+      return "";
     }
 
     function prikaziProizvode(lista) {
