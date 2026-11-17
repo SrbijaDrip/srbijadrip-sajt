@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SrbijaDrip — Nova Kolekcija</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FAF9F6; color: #1A1A1A; }
+    h1, h2, .serif { font-family: 'Playfair Display', serif; }
+  </style>
+</head>
+<body class="antialiased">
+
+  <!-- Navigacija -->
+  <header class="sticky top-0 z-40 bg-[#FAF9F6]/90 backdrop-blur border-b border-stone-200">
+    <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+      <a href="#" class="serif text-xl font-bold tracking-tight">SrbijaDrip</a>
+      <nav class="hidden md:flex gap-6 text-sm text-stone-600">
+        <a href="#katalog" class="hover:text-black">Kolekcija</a>
+        <a href="#kako-radi" class="hover:text-black">Poručivanje</a>
+        <a href="#kontakt" class="hover:text-black">Kontakt</a>
+      </nav>
+      <a href="https://instagram.com/srbijadrip" target="_blank" class="text-xs font-medium bg-stone-900 text-white px-4 py-2 rounded-full hover:bg-stone-700 transition">
+        @srbijadrip
+      </a>
+    </div>
+  </header>
+
+  <!-- Glavni baner -->
+  <section class="max-w-5xl mx-auto px-4 py-12 md:py-20 text-center">
+    <p class="text-xs uppercase tracking-[0.2em] text-stone-500 mb-3">Nova sezona · Tvoja pravila</p>
+    <h1 class="text-4xl md:text-6xl font-medium leading-tight mb-4">Nova kolekcija <span class="italic">je stigla.</span></h1>
+    <p class="text-sm md:text-base text-stone-600 max-w-md mx-auto mb-8">
+      Opušteni krojevi i pažljivo odabrani detalji. Brza dostava kurirskom službom i plaćanje pouzećem.
+    </p>
+    <a href="#katalog" class="inline-block bg-stone-900 text-white text-sm px-8 py-3.5 rounded-full hover:bg-stone-800 transition">
+      Pogledaj ponudu ↓
+    </a>
+  </section>
+
+  <!-- Prednosti traka -->
+  <div class="border-y border-stone-200 bg-white py-4">
+    <div class="max-w-5xl mx-auto px-4 flex flex-wrap justify-center gap-6 md:gap-12 text-xs text-stone-600">
+      <span>🚚 Dostava širom Srbije</span>
+      <span>💵 Plaćanje pouzećem</span>
+      <span>🔄 Zamena veličine u roku od 7 dana</span>
+    </div>
+  </div>
+
+  <!-- Katalog proizvoda -->
+  <section id="katalog" class="max-w-5xl mx-auto px-4 py-14">
+    <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
+      <h2 class="text-2xl md:text-3xl font-medium">Izdvojeni komadi</h2>
+      <div class="flex gap-2 overflow-x-auto pb-1" id="filter-buttons">
+        <button onclick="filterProizvode('Sve')" class="filter-btn active px-4 py-1.5 rounded-full text-xs font-medium bg-stone-900 text-white">Sve</button>
+        <button onclick="filterProizvode('Jakne')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-stone-200 text-stone-700 hover:bg-stone-300">Jakne</button>
+        <button onclick="filterProizvode('Kompleti')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-stone-200 text-stone-700 hover:bg-stone-300">Kompleti</button>
+        <button onclick="filterProizvode('Haljine')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-stone-200 text-stone-700 hover:bg-stone-300">Haljine</button>
+      </div>
+    </div>
+
+    <div id="proizvodi-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+  </section>
+
+  <!-- Kako funkcioniše -->
+  <section id="kako-radi" class="bg-white border-t border-stone-200 py-14">
+    <div class="max-w-5xl mx-auto px-4 text-center">
+      <h2 class="text-2xl md:text-3xl font-medium mb-10">Kako funkcioniše poručivanje</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
+        <div class="p-6 bg-[#FAF9F6] rounded-2xl">
+          <div class="text-2xl mb-2">01</div>
+          <h3 class="font-semibold mb-1">Izaberi model i veličinu</h3>
+          <p class="text-stone-500 text-xs">Klikni na željeni komad i odaberi svoju veličinu.</p>
+        </div>
+        <div class="p-6 bg-[#FAF9F6] rounded-2xl">
+          <div class="text-2xl mb-2">02</div>
+          <h3 class="font-semibold mb-1">Pošalji podatke ili DM</h3>
+          <p class="text-stone-500 text-xs">Popuni brzu formu na sajtu ili nam piši direktno na Instagramu.</p>
+        </div>
+        <div class="p-6 bg-[#FAF9F6] rounded-2xl">
+          <div class="text-2xl mb-2">03</div>
+          <h3 class="font-semibold mb-1">Stiže na tvoju adresu</h3>
+          <p class="text-stone-500 text-xs">Isporuka za 1-3 radna dana. Plaćaš tek kada preuzmeš paket.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="kontakt" class="border-t border-stone-200 py-10 text-center text-xs text-stone-500">
+    <p class="serif text-base text-stone-900 font-bold mb-2">SrbijaDrip</p>
+    <p class="mb-4">Prati nas za nove modele i popuste svakog dana</p>
+    <a href="https://instagram.com/srbijadrip" target="_blank" class="inline-block border border-stone-900 text-stone-900 px-6 py-2.5 rounded-full font-medium hover:bg-stone-900 hover:text-white transition">
+      Otvori Instagram profil
+    </a>
+  </footer>
+
+  <!-- Modal za poručivanje -->
+  <div id="modal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 relative shadow-xl">
+      <button onclick="zatvoriModal()" class="absolute top-4 right-4 text-stone-400 hover:text-black text-xl">✕</button>
+      <h3 id="modal-naziv" class="serif text-xl font-bold mb-1"></h3>
+      <p id="modal-cena" class="text-sm text-stone-500 mb-4"></p>
+
+      <label class="block text-xs font-medium mb-1.5">Izaberi veličinu:</label>
+      <div class="flex gap-2 mb-4" id="modal-velicine"></div>
+
+      <form onsubmit="posaljiPorudzbinu(event)" class="space-y-3">
+        <input type="text" required placeholder="Ime i prezime" class="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm" />
+        <input type="tel" required placeholder="Broj telefona (npr. 064...)" class="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm" />
+        <input type="text" required placeholder="Grad i adresa za dostavu" class="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm" />
+        <button type="submit" class="w-full bg-stone-900 text-white py-2.5 rounded-lg text-sm font-medium hover:bg-stone-800 transition">
+          Poruči pouzećem
+        </button>
+      </form>
+
+      <div class="mt-3 text-center">
+        <a id="ig-dm-link" href="https://instagram.com/srbijadrip" target="_blank" class="text-xs text-stone-600 underline hover:text-black">
+          Ili poruči direktno putem Instagram DM-a →
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // OVDE MENJAŠ SVOJE PROIZVODE, CENE I SLIKE:
+    const INSTAGRAM_PROFIL = "https://instagram.com/srbijadrip";
+
+    const proizvodi = [
+      {
+        id: 1,
+        naziv: "Bež Oversized Komplet",
+        kategorija: "Kompleti",
+        cena: "6.900 RSD",
+        velicine: ["S", "M", "L"],
+        slika: "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 2,
+        naziv: "Kožna Jakna Noir",
+        kategorija: "Jakne",
+        cena: "9.500 RSD",
+        velicine: ["S", "M", "L", "XL"],
+        slika: "https://images.unsplash.com/photo-1551028719-00167b16eac5?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 3,
+        naziv: "Saten Haljina Champagne",
+        kategorija: "Haljine",
+        cena: "5.400 RSD",
+        velicine: ["XS", "S", "M"],
+        slika: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 4,
+        naziv: "Kratka Puffer Jakna",
+        kategorija: "Jakne",
+        cena: "8.200 RSD",
+        velicine: ["S", "M", "L"],
+        slika: "https://images.unsplash.com/photo-1544022613-e87ca75a784a?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 5,
+        naziv: "Pleteni Komplet Cream",
+        kategorija: "Kompleti",
+        cena: "7.300 RSD",
+        velicine: ["S/M", "M/L"],
+        slika: "https://images.unsplash.com/photo-1434389677669-e08b4cac3105?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 6,
+        naziv: "Crna Mini Haljina",
+        kategorija: "Haljine",
+        cena: "4.900 RSD",
+        velicine: ["S", "M", "L"],
+        slika: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?auto=format&fit=crop&w=600&q=80"
+      }
+    ];
+
+    let izabranaVelicina = "";
+
+    function prikaziProizvode(lista) {
+      const grid = document.getElementById("proizvodi-grid");
+      grid.innerHTML = lista.map(p => `
+        <div class="bg-white rounded-2xl overflow-hidden border border-stone-200/80 flex flex-col">
+          <img src="${p.slika}" alt="${p.naziv}" class="w-full h-80 object-cover" />
+          <div class="p-4 flex-1 flex flex-col justify-between">
+            <div>
+              <div class="flex justify-between items-start gap-2 mb-1">
+                <h3 class="font-medium text-sm">${p.naziv}</h3>
+                <span class="font-semibold text-sm whitespace-nowrap">${p.cena}</span>
+              </div>
+              <p class="text-xs text-stone-400 mb-4">Veličine: ${p.velicine.join(", ")}</p>
+            </div>
+            <button onclick="otvoriModal(${p.id})" class="w-full bg-stone-900 text-white py-2.5 rounded-xl text-xs font-medium hover:bg-stone-700 transition">
+              Poruči komad
+            </button>
+          </div>
+        </div>
+      `).join("");
+    }
+
+    function filterProizvode(kat) {
+      document.querySelectorAll(".filter-btn").forEach(btn => {
+        btn.classList.remove("bg-stone-900", "text-white");
+        btn.classList.add("bg-stone-200", "text-stone-700");
+        if (btn.textContent === kat) {
+          btn.classList.remove("bg-stone-200", "text-stone-700");
+          btn.classList.add("bg-stone-900", "text-white");
+        }
+      });
+      const filtrirani = kat === "Sve" ? proizvodi : proizvodi.filter(p => p.kategorija === kat);
+      prikaziProizvode(filtrirani);
+    }
+
+    function otvoriModal(id) {
+      const p = proizvodi.find(item => item.id === id);
+      document.getElementById("modal-naziv").textContent = p.naziv;
+      document.getElementById("modal-cena").textContent = p.cena;
+      document.getElementById("ig-dm-link").href = INSTAGRAM_PROFIL;
+      izabranaVelicina = p.velicine[0];
+
+      document.getElementById("modal-velicine").innerHTML = p.velicine.map((v, i) => `
+        <button type="button" onclick="izaberiVel(this, '${v}')" class="vel-btn px-3 py-1 rounded-md text-xs border ${i === 0 ? 'bg-stone-900 text-white border-stone-900' : 'border-stone-300'}">${v}</button>
+      `).join("");
+
+      document.getElementById("modal").classList.remove("hidden");
+    }
+
+    function izaberiVel(btn, vel) {
+      izabranaVelicina = vel;
+      document.querySelectorAll(".vel-btn").forEach(b => {
+        b.classList.remove("bg-stone-900", "text-white", "border-stone-900");
+        b.classList.add("border-stone-300");
+      });
+      btn.classList.add("bg-stone-900", "text-white", "border-stone-900");
+    }
+
+    function zatvoriModal() {
+      document.getElementById("modal").classList.add("hidden");
+    }
+
+    function posaljiPorudzbinu(e) {
+      e.preventDefault();
+      alert("Hvala! Tvoja porudžbina (" + document.getElementById("modal-naziv").textContent + ", veličina: " + izabranaVelicina + ") je zabeležena. Uskoro te kontaktiramo!");
+      zatvoriModal();
+    }
+
+    prikaziProizvode(proizvodi);
+  </script>
+</body>
+</html>
