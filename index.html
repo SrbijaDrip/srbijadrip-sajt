@@ -7,22 +7,25 @@
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,500&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap" rel="stylesheet">
   <style>
-    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #FAF9F6; color: #1A1A1A; }
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0b0710; color: #f3e8ff; }
     h1, h2, .serif { font-family: 'Playfair Display', serif; }
   </style>
 </head>
-<body class="antialiased">
+<body class="antialiased selection:bg-purple-600 selection:text-white">
 
   <!-- Navigacija -->
-  <header class="sticky top-0 z-40 bg-[#FAF9F6]/90 backdrop-blur border-b border-stone-200">
+  <header class="sticky top-0 z-40 bg-[#0b0710]/90 backdrop-blur border-b border-purple-950/60">
     <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
-      <a href="#" class="serif text-xl font-bold tracking-tight">SrbijaDrip</a>
-      <nav class="hidden md:flex gap-6 text-sm text-stone-600">
-        <a href="#katalog" class="hover:text-black">Kolekcija</a>
-        <a href="#kako-radi" class="hover:text-black">Poručivanje</a>
-        <a href="#kontakt" class="hover:text-black">Kontakt</a>
+      <div class="flex items-center gap-3">
+        <img src="https://i.ibb.co/68v8L35/IMG-1103.png" alt="SrbijaDrip Logo" class="w-9 h-9 rounded-full object-cover border border-purple-600/50 shadow-[0_0_12px_rgba(147,51,234,0.3)]">
+        <a href="#" class="serif text-xl font-bold tracking-tight text-white">SrbijaDrip</a>
+      </div>
+      <nav class="hidden md:flex gap-6 text-sm text-purple-200/70">
+        <a href="#katalog" class="hover:text-purple-400 transition">Kolekcija</a>
+        <a href="#kako-radi" class="hover:text-purple-400 transition">Poručivanje</a>
+        <a href="#kontakt" class="hover:text-purple-400 transition">Kontakt</a>
       </nav>
-      <a href="https://instagram.com/srbijadrip" target="_blank" class="text-xs font-medium bg-stone-900 text-white px-4 py-2 rounded-full hover:bg-stone-700 transition">
+      <a href="https://instagram.com/srbijadrip" target="_blank" class="text-xs font-medium bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-4 py-2 rounded-full hover:opacity-90 shadow-[0_0_15px_rgba(147,51,234,0.4)] transition">
         @srbijadrip
       </a>
     </div>
@@ -30,19 +33,22 @@
 
   <!-- Glavni baner -->
   <section class="max-w-5xl mx-auto px-4 py-12 md:py-20 text-center">
-    <p class="text-xs uppercase tracking-[0.2em] text-stone-500 mb-3">Nova sezona · Tvoja pravila</p>
-    <h1 class="text-4xl md:text-6xl font-medium leading-tight mb-4">Nova kolekcija <span class="italic">je stigla.</span></h1>
-    <p class="text-sm md:text-base text-stone-600 max-w-md mx-auto mb-8">
+    <div class="mb-6 flex justify-center">
+      <img src="https://i.ibb.co/68v8L35/IMG-1103.png" alt="SrbijaDrip Logo" class="w-24 h-24 rounded-full object-cover border-2 border-purple-500 shadow-[0_0_25px_rgba(168,85,247,0.4)]">
+    </div>
+    <p class="text-xs uppercase tracking-[0.2em] text-purple-400 mb-3 font-semibold">Nova sezona · Tvoja pravila</p>
+    <h1 class="text-4xl md:text-6xl font-medium leading-tight mb-4 text-white">Nova kolekcija <span class="italic text-purple-400">je stigla.</span></h1>
+    <p class="text-sm md:text-base text-purple-200/70 max-w-md mx-auto mb-8">
       Opušteni krojevi i pažljivo odabrani detalji. Brza dostava kurirskom službom i plaćanje pouzećem.
     </p>
-    <a href="#katalog" class="inline-block bg-stone-900 text-white text-sm px-8 py-3.5 rounded-full hover:bg-stone-800 transition">
+    <a href="#katalog" class="inline-block bg-gradient-to-r from-purple-600 to-indigo-600 text-white text-sm px-8 py-3.5 rounded-full hover:opacity-90 shadow-[0_0_20px_rgba(147,51,234,0.4)] transition">
       Pogledaj ponudu ↓
     </a>
   </section>
 
   <!-- Prednosti traka -->
-  <div class="border-y border-stone-200 bg-white py-4">
-    <div class="max-w-5xl mx-auto px-4 flex flex-wrap justify-center gap-6 md:gap-12 text-xs text-stone-600">
+  <div class="border-y border-purple-950/60 bg-[#120c1c] py-4">
+    <div class="max-w-5xl mx-auto px-4 flex flex-wrap justify-center gap-6 md:gap-12 text-xs text-purple-200/80">
       <span>🚚 Dostava širom Srbije</span>
       <span>💵 Plaćanje pouzećem</span>
       <span>🔄 Zamena veličine u roku od 7 dana</span>
@@ -52,12 +58,12 @@
   <!-- Katalog proizvoda -->
   <section id="katalog" class="max-w-5xl mx-auto px-4 py-14">
     <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-      <h2 class="text-2xl md:text-3xl font-medium">Izdvojeni komadi</h2>
+      <h2 class="text-2xl md:text-3xl font-medium text-white">Izdvojeni komadi</h2>
       <div class="flex gap-2 overflow-x-auto pb-1" id="filter-buttons">
-        <button onclick="filterProizvode('Sve')" class="filter-btn active px-4 py-1.5 rounded-full text-xs font-medium bg-stone-900 text-white">Sve</button>
-        <button onclick="filterProizvode('Jakne')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-stone-200 text-stone-700 hover:bg-stone-300">Jakne</button>
-        <button onclick="filterProizvode('Kompleti')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-stone-200 text-stone-700 hover:bg-stone-300">Kompleti</button>
-        <button onclick="filterProizvode('Haljine')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-stone-200 text-stone-700 hover:bg-stone-300">Haljine</button>
+        <button onclick="filterProizvode('Sve')" class="filter-btn active px-4 py-1.5 rounded-full text-xs font-medium bg-purple-600 text-white shadow-[0_0_10px_rgba(147,51,234,0.4)]">Sve</button>
+        <button onclick="filterProizvode('Jakne')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-[#1a1226] text-purple-300 border border-purple-900/50 hover:bg-purple-950">Jakne</button>
+        <button onclick="filterProizvode('Kompleti')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-[#1a1226] text-purple-300 border border-purple-900/50 hover:bg-purple-950">Kompleti</button>
+        <button onclick="filterProizvode('Haljine')" class="filter-btn px-4 py-1.5 rounded-full text-xs font-medium bg-[#1a1226] text-purple-300 border border-purple-900/50 hover:bg-purple-950">Haljine</button>
       </div>
     </div>
 
@@ -65,67 +71,58 @@
   </section>
 
   <!-- Kako funkcioniše -->
-  <section id="kako-radi" class="bg-white border-t border-stone-200 py-14">
+  <section id="kako-radi" class="bg-[#120c1c] border-t border-purple-950/60 py-14">
     <div class="max-w-5xl mx-auto px-4 text-center">
-      <h2 class="text-2xl md:text-3xl font-medium mb-10">Kako funkcioniše poručivanje</h2>
+      <h2 class="text-2xl md:text-3xl font-medium mb-10 text-white">Kako funkcioniše poručivanje</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-sm">
-        <div class="p-6 bg-[#FAF9F6] rounded-2xl">
-          <div class="text-2xl mb-2">01</div>
-          <h3 class="font-semibold mb-1">Izaberi model i veličinu</h3>
-          <p class="text-stone-500 text-xs">Klikni na željeni komad i odaberi svoju veličinu.</p>
+        <div class="p-6 bg-[#0b0710] border border-purple-950/60 rounded-2xl">
+          <div class="text-2xl mb-2 text-purple-400 font-serif">01</div>
+          <h3 class="font-semibold mb-1 text-white">Izaberi model i veličinu</h3>
+          <p class="text-purple-300/60 text-xs">Klikni na željeni komad i odaberi svoju veličinu.</p>
         </div>
-        <div class="p-6 bg-[#FAF9F6] rounded-2xl">
-          <div class="text-2xl mb-2">02</div>
-          <h3 class="font-semibold mb-1">Pošalji podatke ili DM</h3>
-          <p class="text-stone-500 text-xs">Popuni brzu formu na sajtu ili nam piši direktno na Instagramu.</p>
+        <div class="p-6 bg-[#0b0710] border border-purple-950/60 rounded-2xl">
+          <div class="text-2xl mb-2 text-purple-400 font-serif">02</div>
+          <h3 class="font-semibold mb-1 text-white">Pošalji poruku na Instagramu</h3>
+          <p class="text-purple-300/60 text-xs">Klikom na poručivanje automatski prelaziš u DM.</p>
         </div>
-        <div class="p-6 bg-[#FAF9F6] rounded-2xl">
-          <div class="text-2xl mb-2">03</div>
-          <h3 class="font-semibold mb-1">Stiže na tvoju adresu</h3>
-          <p class="text-stone-500 text-xs">Isporuka za 1-3 radna dana. Plaćaš tek kada preuzmeš paket.</p>
+        <div class="p-6 bg-[#0b0710] border border-purple-950/60 rounded-2xl">
+          <div class="text-2xl mb-2 text-purple-400 font-serif">03</div>
+          <h3 class="font-semibold mb-1 text-white">Stiže na tvoju adresu</h3>
+          <p class="text-purple-300/60 text-xs">Isporuka za 1-3 radna dana. Plaćaš tek kada preuzmeš paket.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer id="kontakt" class="border-t border-stone-200 py-10 text-center text-xs text-stone-500">
-    <p class="serif text-base text-stone-900 font-bold mb-2">SrbijaDrip</p>
+  <footer id="kontakt" class="border-t border-purple-950/60 py-10 text-center text-xs text-purple-300/60">
+    <div class="flex justify-center mb-3">
+      <img src="https://i.ibb.co/68v8L35/IMG-1103.png" alt="SrbijaDrip Logo" class="w-10 h-10 rounded-full object-cover border border-purple-600/50">
+    </div>
+    <p class="serif text-base text-white font-bold mb-2">SrbijaDrip</p>
     <p class="mb-4">Prati nas za nove modele i popuste svakog dana</p>
-    <a href="https://instagram.com/srbijadrip" target="_blank" class="inline-block border border-stone-900 text-stone-900 px-6 py-2.5 rounded-full font-medium hover:bg-stone-900 hover:text-white transition">
+    <a href="https://instagram.com/srbijadrip" target="_blank" class="inline-block border border-purple-600 text-purple-300 px-6 py-2.5 rounded-full font-medium hover:bg-purple-600 hover:text-white transition shadow-[0_0_15px_rgba(147,51,234,0.3)]">
       Otvori Instagram profil
     </a>
   </footer>
 
   <!-- Modal za poručivanje -->
-  <div id="modal" class="fixed inset-0 z-50 hidden bg-black/50 backdrop-blur-sm flex items-center justify-center p-4">
-    <div class="bg-white rounded-2xl max-w-md w-full p-6 relative shadow-xl">
-      <button onclick="zatvoriModal()" class="absolute top-4 right-4 text-stone-400 hover:text-black text-xl">✕</button>
-      <h3 id="modal-naziv" class="serif text-xl font-bold mb-1"></h3>
-      <p id="modal-cena" class="text-sm text-stone-500 mb-4"></p>
+  <div id="modal" class="fixed inset-0 z-50 hidden bg-black/80 backdrop-blur-sm flex items-center justify-center p-4">
+    <div class="bg-[#120c1c] border border-purple-900/50 rounded-2xl max-w-md w-full p-6 relative shadow-[0_0_30px_rgba(147,51,234,0.2)]">
+      <button onclick="zatvoriModal()" class="absolute top-4 right-4 text-purple-400 hover:text-white text-xl">✕</button>
+      <h3 id="modal-naziv" class="serif text-xl font-bold mb-1 text-white"></h3>
+      <p id="modal-cena" class="text-sm text-purple-400 mb-4 font-semibold"></p>
 
-      <label class="block text-xs font-medium mb-1.5">Izaberi veličinu:</label>
-      <div class="flex gap-2 mb-4" id="modal-velicine"></div>
+      <label class="block text-xs font-medium mb-1.5 text-purple-200">Izaberi veličinu:</label>
+      <div class="flex gap-2 mb-6" id="modal-velicine"></div>
 
-      <form onsubmit="posaljiPorudzbinu(event)" class="space-y-3">
-        <input type="text" required placeholder="Ime i prezime" class="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm" />
-        <input type="tel" required placeholder="Broj telefona (npr. 064...)" class="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm" />
-        <input type="text" required placeholder="Grad i adresa za dostavu" class="w-full border border-stone-300 rounded-lg px-3 py-2 text-sm" />
-        <button type="submit" class="w-full bg-stone-900 text-white py-2.5 rounded-lg text-sm font-medium hover:bg-stone-800 transition">
-          Poruči pouzećem
-        </button>
-      </form>
-
-      <div class="mt-3 text-center">
-        <a id="ig-dm-link" href="https://instagram.com/srbijadrip" target="_blank" class="text-xs text-stone-600 underline hover:text-black">
-          Ili poruči direktno putem Instagram DM-a →
-        </a>
-      </div>
+      <a id="modal-instagram-btn" href="https://instagram.com/srbijadrip" target="_blank" class="block w-full text-center bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-3 rounded-xl text-sm font-medium hover:opacity-90 shadow-[0_0_20px_rgba(147,51,234,0.4)] transition">
+        Pošalji porudžbinu u Instagram DM ↗
+      </a>
     </div>
   </div>
 
   <script>
-    // OVDE MENJAŠ SVOJE PROIZVODE, CENE I SLIKE:
     const INSTAGRAM_PROFIL = "https://instagram.com/srbijadrip";
 
     const proizvodi = [
@@ -180,21 +177,22 @@
     ];
 
     let izabranaVelicina = "";
+    let trenutniProizvod = null;
 
     function prikaziProizvode(lista) {
       const grid = document.getElementById("proizvodi-grid");
       grid.innerHTML = lista.map(p => `
-        <div class="bg-white rounded-2xl overflow-hidden border border-stone-200/80 flex flex-col">
+        <div class="bg-[#120c1c] rounded-2xl overflow-hidden border border-purple-950/60 flex flex-col shadow-lg">
           <img src="${p.slika}" alt="${p.naziv}" class="w-full h-80 object-cover" />
           <div class="p-4 flex-1 flex flex-col justify-between">
             <div>
               <div class="flex justify-between items-start gap-2 mb-1">
-                <h3 class="font-medium text-sm">${p.naziv}</h3>
-                <span class="font-semibold text-sm whitespace-nowrap">${p.cena}</span>
+                <h3 class="font-medium text-sm text-white">${p.naziv}</h3>
+                <span class="font-semibold text-sm text-purple-400 whitespace-nowrap">${p.cena}</span>
               </div>
-              <p class="text-xs text-stone-400 mb-4">Veličine: ${p.velicine.join(", ")}</p>
+              <p class="text-xs text-purple-300/50 mb-4">Veličine: ${p.velicine.join(", ")}</p>
             </div>
-            <button onclick="otvoriModal(${p.id})" class="w-full bg-stone-900 text-white py-2.5 rounded-xl text-xs font-medium hover:bg-stone-700 transition">
+            <button onclick="otvoriModal(${p.id})" class="w-full bg-gradient-to-r from-purple-600 to-indigo-600 text-white py-2.5 rounded-xl text-xs font-medium hover:opacity-90 transition shadow-[0_0_15px_rgba(147,51,234,0.3)]">
               Poruči komad
             </button>
           </div>
@@ -204,11 +202,11 @@
 
     function filterProizvode(kat) {
       document.querySelectorAll(".filter-btn").forEach(btn => {
-        btn.classList.remove("bg-stone-900", "text-white");
-        btn.classList.add("bg-stone-200", "text-stone-700");
+        btn.classList.remove("bg-purple-600", "text-white", "shadow-[0_0_10px_rgba(147,51,234,0.4)]");
+        btn.classList.add("bg-[#1a1226]", "text-purple-300", "border", "border-purple-900/50");
         if (btn.textContent === kat) {
-          btn.classList.remove("bg-stone-200", "text-stone-700");
-          btn.classList.add("bg-stone-900", "text-white");
+          btn.classList.remove("bg-[#1a1226]", "text-purple-300", "border", "border-purple-900/50");
+          btn.classList.add("bg-purple-600", "text-white", "shadow-[0_0_10px_rgba(147,51,234,0.4)]");
         }
       });
       const filtrirani = kat === "Sve" ? proizvodi : proizvodi.filter(p => p.kategorija === kat);
@@ -216,14 +214,14 @@
     }
 
     function otvoriModal(id) {
-      const p = proizvodi.find(item => item.id === id);
-      document.getElementById("modal-naziv").textContent = p.naziv;
-      document.getElementById("modal-cena").textContent = p.cena;
-      document.getElementById("ig-dm-link").href = INSTAGRAM_PROFIL;
-      izabranaVelicina = p.velicine[0];
+      trenutniProizvod = proizvodi.find(item => item.id === id);
+      document.getElementById("modal-naziv").textContent = trenutniProizvod.naziv;
+      document.getElementById("modal-cena").textContent = trenutniProizvod.cena;
+      izabranaVelicina = trenutniProizvod.velicine[0];
+      azurirajInstagramLink();
 
-      document.getElementById("modal-velicine").innerHTML = p.velicine.map((v, i) => `
-        <button type="button" onclick="izaberiVel(this, '${v}')" class="vel-btn px-3 py-1 rounded-md text-xs border ${i === 0 ? 'bg-stone-900 text-white border-stone-900' : 'border-stone-300'}">${v}</button>
+      document.getElementById("modal-velicine").innerHTML = trenutniProizvod.velicine.map((v, i) => `
+        <button type="button" onclick="izaberiVel(this, '${v}')" class="vel-btn px-4 py-1.5 rounded-lg text-xs font-medium border ${i === 0 ? 'bg-purple-600 text-white border-purple-500 shadow-[0_0_10px_rgba(147,51,234,0.4)]' : 'bg-[#0b0710] text-purple-300 border-purple-900/60'}">${v}</button>
       `).join("");
 
       document.getElementById("modal").classList.remove("hidden");
@@ -232,20 +230,21 @@
     function izaberiVel(btn, vel) {
       izabranaVelicina = vel;
       document.querySelectorAll(".vel-btn").forEach(b => {
-        b.classList.remove("bg-stone-900", "text-white", "border-stone-900");
-        b.classList.add("border-stone-300");
+        b.classList.remove("bg-purple-600", "text-white", "border-purple-500", "shadow-[0_0_10px_rgba(147,51,234,0.4)]");
+        b.classList.add("bg-[#0b0710]", "text-purple-300", "border-purple-900/60");
       });
-      btn.classList.add("bg-stone-900", "text-white", "border-stone-900");
+      btn.classList.remove("bg-[#0b0710]", "text-purple-300", "border-purple-900/60");
+      btn.classList.add("bg-purple-600", "text-white", "border-purple-500", "shadow-[0_0_10px_rgba(147,51,234,0.4)]");
+      azurirajInstagramLink();
+    }
+
+    function azurirajInstagramLink() {
+      const poruka = encodeURIComponent(`Zdravo! Želela bih da poručim: ${trenutniProizvod.naziv}, veličina: ${izabranaVelicina}, cena: ${trenutniProizvod.cena}.`);
+      document.getElementById("modal-instagram-btn").href = `${INSTAGRAM_PROFIL}?text=${poruka}`;
     }
 
     function zatvoriModal() {
       document.getElementById("modal").classList.add("hidden");
-    }
-
-    function posaljiPorudzbinu(e) {
-      e.preventDefault();
-      alert("Hvala! Tvoja porudžbina (" + document.getElementById("modal-naziv").textContent + ", veličina: " + izabranaVelicina + ") je zabeležena. Uskoro te kontaktiramo!");
-      zatvoriModal();
     }
 
     prikaziProizvode(proizvodi);
